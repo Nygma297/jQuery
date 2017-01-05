@@ -20,7 +20,7 @@ app.set('view engine', 'handlebars');
 mongoose.connect('mongodb://localhost/cbdb');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(exp.static(path.join(__dirname, 'web')));
@@ -211,20 +211,20 @@ app.post('/data', function(req, res) {
     var newEntry = new Contact();
 
     var w = newEntry.userid = req.user.id;
-    var x = newEntry.name = req.body.name;
-    var y = newEntry.email = req.body.email;
-    var z = newEntry.mobile = req.body.mobile;
-
+    var x = newEntry.name = req.query.name;
+    var y = newEntry.email = req.query.email;
+    var z = newEntry.mobile = req.query.mobile;
+    console.log("lol",x,y,z);
     newEntry.save(function(err, data) {
         if(err) {
             res.send('error saving data');
         } else {
             console.log(data);
-        }
-        var data = {
-            _id: w, name: x, email: y, mobile: z
-        };
             res.redirect('/');
+        }
+        // var data = {
+        //     _id: w, name: x, email: y, mobile: z
+        // };
     });
 })
 
