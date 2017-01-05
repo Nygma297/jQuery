@@ -1,0 +1,65 @@
+	    <nav class="navbar navbar-default">
+    	    <div class="container-fluid">
+        	    <div class="navbar-header">
+            	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                	    <span class="sr-only">Toggle navigation</span>
+    	            </button>
+					<a href="#"><img src="images/pb2.png"  width="15%" /></a></div>
+        	    <div class="collapse navbar-collapse" id="navcol-1">
+            	    <ul class="nav navbar-nav">
+                	    <li class="active" role="presentation"><a href="#">Dashboard</a></li>
+                    	<li role="presentation"><a href="/out">Logout</a></li>
+    	            </ul>
+        	    </div>
+        	</div>
+    	</nav>
+		<div class="container">
+			<h1>Contact Book</h1>
+			<div class="contact">
+
+				<div id="cbdata" class="right-w3">
+					<p class="para">Hey Look! All your contacts!</p>
+					<br/>
+    				{{#each temp}}
+					<p><center><b>{{this.name}}</b></p>
+				    <p> {{this.name}}'s Email = {{this.email}} </p>
+    				<p>{{this.name}}'s Cell = {{this.mobile}} </center></p>
+					<form action="/del" method="get">
+						<input type="hidden" name="id" value={{this._id}}>
+						<input id="delete" type = "submit" value="Delete">
+					</form><br/>
+					{{!--<form action="/up" method="get">
+						<input type="hidden" name="id" value={{this._id}}>
+						<input type = "submit" value="Update">
+					</form><br/>--}}
+    				{{/each}}
+					<h2>Phew! That's all your data!</h2>
+				</div>
+				<form id="lol" action="/data" method="POST" >
+					<div class="left">
+						<div class="name">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input type="text" name="name" class="name" placeholder="Contact Name" required="">
+						</div>
+						<div class="email">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<input type="text" name="email" class="email" placeholder="Contact's Email" required="">
+						</div>
+						<div class="phone">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+							<input type="text" name="mobile" class="phone" value="+91" maxlength="13" placeholder="Contact's Cell Number" required="">
+						</div>
+						<input id="loading" type="submit" value="Store">
+					</div>
+				</form>
+				<div class="clear"></div>
+				<div class="clear"></div>
+				{{!--<div class="right-w3">
+					<h2>Everybody needs Options here are some of yours!</h2>
+					<button type = "button" onclick="window.location='http://localhost:8081/contacts'">View Data</button>
+					<br/><button type = "button" onclick="window.location='delete.html'">Remove a contact</button>
+					<br/><button type = "button" onclick="window.location='update.html'">Update a contact</button>
+				</div>--}}
+
+				<div class="clear"></div>
+			</div>			

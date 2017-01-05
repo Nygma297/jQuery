@@ -1,0 +1,52 @@
+	    <nav class="navbar navbar-default">
+    	    <div class="container-fluid">
+        	    <div class="navbar-header">
+            	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                	    <span class="sr-only">Toggle navigation</span>
+    	            </button>
+					<a href="#"><img src="images/pb2.png"  width="15%" style="padding-right: -200px"/></a></div>
+        	    <div class="collapse navbar-collapse" id="navcol-1">
+            	    <ul class="nav navbar-nav">
+                	    <li class="active" role="presentation"><a href="#">Log In</a></li>
+                    	<li role="presentation"><a href="/reg">Register</a></li>
+    	            </ul>
+        	    </div>
+        	</div>
+    	</nav>
+		<div class="container">
+			<h1>Contact Book</h1>
+			<div class="contact">
+
+				<div class="right-w3">
+					<p class="para">Welcome to Your Contact Book.</p>
+					<p>Let's get you in,</p>
+					<p>Fill out this form</p>
+					<p>Then add, update or delete your contacts.</p>
+					<p>And We'll save your data!</p>
+					<h2>Contact Book<br/> A Storage for your contacts.</h2>
+				</div>
+				<form action="/login" method="get">
+					<div class="left">
+						<div class="email">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<input type="text" name="username" class="email" placeholder="Enter Your Login Email" required="">
+						</div>
+						<div class="phone">
+							<i class="fa fa-key" aria-hidden="true"></i>
+							<input type="password" name="password" class="phone" placeholder="Enter Your Password" required="">
+						</div>
+						<center><input type="submit" value="Log me In!" style="margin-left:0px"><br/>
+						<p>New User <a href = "/reg">Register Here!</a></p></center>
+					</div>
+				</form>
+				<div class="clear"></div>
+				<div class="clear"></div>
+				{{!--<div class="right-w3">
+					<h2>Everybody needs Options here are some of yours!</h2>
+					<button type = "button" onclick="window.location='http://localhost:8081/contacts'">View Data</button>
+					<br/><button type = "button" onclick="window.location='delete.html'">Remove a contact</button>
+					<br/><button type = "button" onclick="window.location='update.html'">Update a contact</button>
+				</div>--}}
+
+				<div class="clear"></div>
+			</div>

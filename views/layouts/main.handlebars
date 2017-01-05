@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contact Book</title>
+	   	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+ 		<link rel="stylesheet" href="css/style.css">
+		<link rel="icon" href="images/pb.png">
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />		
+		<script>
+			$(document).ready(function(){
+				$("#lol").on("submit", (function(e){
+					console.log("Inside jQuery");
+					var data = {
+						name: $("#i").val(),
+						email: $("#ii").val(),
+						mobile:  $("#iii").val()
+					}
+					$.ajax({
+						url : "/data",
+						data : JSON.stringify(data),
+						method:"POST",
+						dataType: "application/JSON",
+						success: function(){
+							console.log("Submitted")							
+						}
+					});
+					$("#cbdata").load("/ #lol");
+					e.preventDefault();
+				}));
+			})
+		</script>
+	</head>
+
+	<body>
+		{{{body}}}
+	<script src="js/jquery2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>
