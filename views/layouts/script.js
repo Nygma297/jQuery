@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#form").on("submit", (function(e){
+	$("#loading").on("click", (function(e){
 			console.log("Inside jQuery");
 			var data = {
 			name: $("#name").val(),
