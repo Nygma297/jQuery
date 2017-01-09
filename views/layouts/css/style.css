@@ -203,6 +203,10 @@ p.para {
 		margin: 50px 0 0 140px;
 		padding: 13px 70px;
 	}
+	input[type="button"] {
+		margin: 50px 0 0 140px;
+		padding: 13px 70px;
+	}
 }
 @media (max-width: 991px){
 	h1 {
