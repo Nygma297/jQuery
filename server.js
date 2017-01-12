@@ -3,8 +3,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var session = require('express-session');
-// var passport = require('passport');
-// var LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var User = require('./models/user');
@@ -12,9 +12,7 @@ var Contact =  require('./models/model')
 var app = exp();
 var path = require('path');
 app.set('views', path.join(__dirname, 'views'));
-
- 
-
+//importing fucntions
 mongoose.connect('mongodb://localhost/cbdb');
 
 app.use(bodyParser.json());
@@ -35,7 +33,7 @@ app.use(exp.static(path.join(__dirname, 'web')));
 // });
 // app.use(expressValidator({
 //     errorFormatter: function(param, msg, value) {
-//         var namespace = param.split('.')
+//         let namespace = param.split('.')
 //         , root    = namespace.shift()
 //         , formParam = root;
 
@@ -79,29 +77,29 @@ function ensureAuthenticated(req, res, next){
 
 //login module
 
-// passport.serializeUser(function(data, done) {
-//     console.log('Serializing', data);
-//     data._id
-//     done(null, data._id);
-// });
+passport.serializeUser(function(data, done) {
+    console.log('Serializing', data);
+    data._id
+    done(null, data._id);
+});
 
-// passport.deserializeUser(function(id, done) {
-//     console.log('De-serializing');
-//     User.getUserById(id, function(err, user) {
-//         console.log('getting by idd');
-//         done(err, user);
-//     });
-// });
+passport.deserializeUser(function(id, done) {
+    console.log('De-serializing');
+    User.getUserById(id, function(err, user) {
+        console.log('getting by idd');
+        done(err, user);
+    });
+});
 
 
 // passport.use('local', new LocalStrategy(
 //     function(username, password, done) {
-//        var email=username;
-//        var pass=password;
+//        let email=username;
+//        let pass=password;
 //         console.log("into LocalStrategy ", password);
 //         User.getUserByUsername(email, function(err, data){
 //             console.log('Into callback',err,data);
-//             var x = data;
+//             let x = data;
 //    	        if(err) throw err;
 //             if(!data){
 //                 console.log("invalid password");
@@ -143,7 +141,7 @@ app.get('/app/out', (req, res)=>{
 app.post('/app/user/save', (req, res)=> {
 
     let newEntry = new Contact();
-    // var w = newEntry.userid = req.user.id;
+    // let w = newEntry.userid = req.user.id;
     let x = newEntry.name = req.body.name;
     let y = newEntry.email = req.body.email;
     let z = newEntry.mobile = req.body.mobile;
@@ -158,7 +156,7 @@ app.post('/app/user/save', (req, res)=> {
     });
 })
 
-app.get('/app/user/delete', (req, res)=> {
+app.get('/app/delete', (req, res)=> {
     let x = req.query.id;
     console.log("Inside node Delete")
     console.log(x);
