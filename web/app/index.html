@@ -21,13 +21,13 @@
    	    <div class="container-fluid">
        	    <div class="navbar-header">
            	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
-               	    <span class="sr-only">Toggle navigation</span>
+           	    <span class="sr-only">Toggle navigation</span>
    	            </button>
-				<a href="#"><img src="images/pb2.png"  width="15%" style="padding-right: -200px"/></a></div>
+				<a href="#"><img src="images/pb2.png"  width="15%" /></a></div>
        	    <div class="collapse navbar-collapse" id="navcol-1">
            	    <ul class="nav navbar-nav">
-               	    <li class="active" role="presentation"><a href="#">Log In</a></li>
-                   	<li role="presentation"><a href="/reg">Register</a></li>
+               	    <li class="active" role="presentation"><a href="#">Dashboard</a></li>
+                   	<li role="presentation"><a href="/app/out">Logout</a></li>
    	            </ul>
        	    </div>
        	</div>
@@ -35,39 +35,41 @@
 	<div class="container">
 		<h1>Contact Book</h1>
 		<div class="contact">
-			<div class="right-w3">
-				<p class="para">Welcome to Your Contact Book.</p>
-				<p>Let's get you in,</p>
-				<p>Fill out this form</p>
-				<p>Then add, update or delete your contacts.</p>
-				<p>And We'll save your data!</p>
-				<h2>Contact Book<br/> A Storage for your contacts.</h2>
-			</div>
-			<form action="/login" method="get" id="login">
-				<div class="left">
-					<div class="email">
-						<i class="fa fa-envelope" aria-hidden="true"></i>
-						<input type="text" name="username" class="email" placeholder="Enter Your Login Email" required="">
-					</div>
-					<div class="phone">
-						<i class="fa fa-key" aria-hidden="true"></i>
-						<input type="password" name="password" class="phone" placeholder="Enter Your Password" required="">
-					</div>
-					<center><button type="button" id="login" style="margin-left:0px">Log In!</button><br/>
-					<p>New User <a href = "/reg">Register Here!</a></p></center>
+			<div id="new">
+			<div id="cbdata" class="right-w3">
+				<p class="para">Hey Look! All your contacts!</p>
+				<br/>	
+			<contacts>
+			<contacts>
+			</div></div>
+			<div class="left">
+				<div class="name">
+					<i class="fa fa-user" aria-hidden="true"></i>
+					<input id="fname" type="text" name="name" class="name" placeholder="Contact Name" required="">
 				</div>
-			</form>
+				<div class="email">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+					<input id="femail" type="text" name="email" class="email" placeholder="Contact's Email" required="">
+				</div>
+					<div class="phone">
+						<i class="fa fa-phone" aria-hidden="true"></i>
+						<input id="fmobile" type="text" name="mobile" class="phone" value="+91" maxlength="13" placeholder="Contact's Cell Number" required="">
+					</div>
+					<button id="store" type="button">Store</button>
+				</div>
 			<div class="clear"></div>
 			<div class="clear"></div>
-			<!--{{!--<div class="right-w3">
-				<h2>Everybody needs Options here are some of yours!</h2>
-				<button type = "button" onclick="window.location='http://localhost:8081/contacts'">View Data</button>
-				<br/><button type = "button" onclick="window.location='delete.html'">Remove a contact</button>
-				<br/><button type = "button" onclick="window.location='update.html'">Update a contact</button>
-			</div>--}}-->
+			<div class="right-w3">
+				<!--<h2>Everybody needs Options here are some of yours!</h2>-->
+				<button type = "button" id="show">View Contacts</button>
+				<!--<br/><button type = "button" onclick="window.location='delete.html'">Remove a contact</button>-->
+				<!--<br/><button type = "button" onclick="window.location='update.html'">Update a contact</button>-->
+			<!--</div>-->
 			<div class="clear"></div>
-		</div>
-		<!--{{!--<script src="js/jquery2.min.js"></script>--}}-->
+		</div>		
+		<script src="jquery.js"></script>
+		<script src="script.js"></script>
+		<!--<script src="js/jquery2.min.js"></script>-->
     	<script src="bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>
