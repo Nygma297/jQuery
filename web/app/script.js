@@ -48,6 +48,7 @@ $(() => {
 				console.log("Users:");
 				console.log(JSON.stringify(response));
 				let i=1;
+				$("contacts").empty();
 				response.forEach((value)=>{
 					let contacts = $('contacts');
 					contacts.append(`<center>${i}. ${value.name}<br/> 
@@ -69,7 +70,8 @@ $(() => {
            	email: $('#femail').val(),
            	mobile: $('#fmobile').val(),    
        	}
-       	$.ajax({
+      
+	   	$.ajax({
            	url: '/app/user/save',
            	contentType: 'application/JSON',
            	method: 'POST',
@@ -84,6 +86,13 @@ $(() => {
 	$("#delete").bind("click", ()=>{
 		let x = this.attr("value");
 		console.log("Deleteing contact with ID:")
+		$.ajax({
+			url:'/app/delete',
+			method:'GET',
+			success:()=>{
+				console.log("Deleted");
+			}
+		})
 	})
 
 });
