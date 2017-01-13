@@ -45,15 +45,16 @@ $(() => {
 			method:"GET",
 			success: (response)=>{
 				$("#show").hide(1000);
-				console.log(response);
 				console.log("Users:");
+				console.log(JSON.stringify(response));
+				let i=1;
 				response.forEach((value)=>{
 					let contacts = $('contacts');
-					contacts.append(`<br/><br/><center>${value.name}<br/> 
+					contacts.append(`<center>${i}. ${value.name}<br/> 
 						<b>Email: ${value.email}</b> <br/>
 						<b>Cell: +${value.mobile}</b> <br/>
-  	  					<button type = "button" id="delete" value="${value._id}" >Delete</button></center>
-					`);	
+  	  					<button type = "button" id="delete" value="${value._id}" >Delete</button></center><br/><br/>
+					`);	i++;
 					$("b").css("color", "white");
 				})
 			}
