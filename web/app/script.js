@@ -1,17 +1,19 @@
 $(() => {
     console.log("Inside jQuery")
 	$("#getin").bind("click", ()=>{
+		console.log("Getting inserted data");
 		let data = {
-			email:$("#email").val(),
+			username:$("#email").val(),
 			password: $("#password").val()
 		}
 		$.ajax({
-			url:'/app/in',
+			url:'/app/login',
 			contentType: 'application/JSON',
-			method:"GET",
+			method:"POST",
 			data:JSON.stringify(data),
 			success: (r)=>{
 				console.log(r);
+		        window.location.href = "/app/home";
 			}
 		});
 	});
@@ -47,11 +49,12 @@ $(() => {
 				console.log("Users:");
 				response.forEach((value)=>{
 					let contacts = $('contacts');
-					contacts.append(`<b>${value.name}</b> <br/>
-						<b>${value.email}</b> <br/>
-						<b>${value.mobile}</b> <br/>
-  	  					<button type = "button" id="delete" value="${value._id}" >Delete</button>
+					contacts.append(`<br/><br/><center>${value.name}<br/> 
+						<b>Email: ${value.email}</b> <br/>
+						<b>Cell: +${value.mobile}</b> <br/>
+  	  					<button type = "button" id="delete" value="${value._id}" >Delete</button></center>
 					`);	
+					$("b").css("color", "white");
 				})
 			}
 		});
@@ -76,5 +79,10 @@ $(() => {
        	});
 		   $("#show").click();
 	});
+
+	$("#delete").bind("click", ()=>{
+		let x = this.attr("value");
+		console.log("Deleteing contact with ID:")
+	})
 
 });
